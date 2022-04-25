@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  GitSearchExtra
+
+  Created by Aliaksandr Chekushkin on 4/25/22.
+  
+*/
+
+//Labels
+"search_label" = "Search";
+"repository_label" = "Repository";
+"repo_title_lable" = "Repo title";
+"commits_history_label" = "Commits history";
+
+//Buttons
+"share_repo_button" = "Share repo";
+"back_button" = "Back";
+"view_online_button" = "View online";
+"open" = "Open";
+"cancel" = "Cancel";
+
+//TextField prompt
+"start_typing_prompt" = "Search repo";
+
+//Alert prompt
+"external_link_prompt" = "Are you sure you want to open the link?";
