@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager<T: Codable> {
     
@@ -16,6 +17,13 @@ class NetworkManager<T: Codable> {
         }
     }
 
+    func makeImageRequest(from link: String?, completion: @escaping(UIImage?) -> Void) {
+        let endpoint = AvatarURLEndpoint(link: link)
+        makeRequest(endpoint: endpoint) { data in
+            let image = UIImage(data: data)
+            completion(image)
+        }
+    }
     
     func makeRequest(endpoint: Endpointable, completion: @escaping (Data) -> Void ) {
         let dataLoader = DataLoader()

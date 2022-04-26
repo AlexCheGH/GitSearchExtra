@@ -22,6 +22,7 @@
 		A597CE0F28181B8F0036EF2E /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE0E28181B8F0036EF2E /* SearchEndpoint.swift */; };
 		A597CE1228181D5C0036EF2E /* Endpointable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1128181D5C0036EF2E /* Endpointable.swift */; };
 		A597CE1428181D980036EF2E /* AvatarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1328181D980036EF2E /* AvatarEndpoint.swift */; };
+		A597CE1628183F9F0036EF2E /* SearchRepoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */; };
 		A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD282816D18100403AF0 /* AppDelegate.swift */; };
 		A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */; };
 		A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2C2816D18100403AF0 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		A597CE0E28181B8F0036EF2E /* SearchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
 		A597CE1128181D5C0036EF2E /* Endpointable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpointable.swift; sourceTree = "<group>"; };
 		A597CE1328181D980036EF2E /* AvatarEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarEndpoint.swift; sourceTree = "<group>"; };
+		A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoManager.swift; sourceTree = "<group>"; };
 		A5ABBD252816D18100403AF0 /* GitSearchExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearchExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABBD282816D18100403AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				A597CE0928181B370036EF2E /* Network */,
+				A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				A597CDE62816EE570036EF2E /* Coordinator.swift in Sources */,
 				A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */,
 				A597CE1428181D980036EF2E /* AvatarEndpoint.swift in Sources */,
+				A597CE1628183F9F0036EF2E /* SearchRepoManager.swift in Sources */,
 				A597CDE42816EDEB0036EF2E /* MainCoordinator.swift in Sources */,
 				A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */,
 			);
