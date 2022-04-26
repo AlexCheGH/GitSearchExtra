@@ -12,7 +12,7 @@ import UIKit
 
 class SearchRepoManager {
     
-    @Published private var model: [SearchModel]?
+    @Published private var model: [SearchModel]? = []
     
     private var matching: String?// needs for additional data downloads
     private var pageNumber = 1 // needs for additional data downloads
@@ -32,7 +32,25 @@ class SearchRepoManager {
         
         let endpoint = SearchEndpoint.search(matching: matching)
         networkManager.getInfo(for: endpoint) { rawData in
-            self.processRawData(from: rawData)
+            let entries = self.processRawData(from: rawData)
+            self.model = entries
+        }
+    }
+    
+    func getMoreEntries() {
+        guard let matching = matching else { return }
+
+        let networkManager = NetworkManager<RawSearchModel>()
+        let endpoint = SearchEndpoint.search(matching: matching, pageNumber: self.pageNumber)
+        
+        networkManager.getInfo(for: endpoint) { rawData in
+            let entries = self.processRawData(from: rawData)
+        
+            if self.model != nil {
+                self.model! += entries
+            }
+            self.pageNumber += 1
+            
         }
     }
     
@@ -42,19 +60,19 @@ class SearchRepoManager {
         
         let networkManager = NetworkManager<Data>()
         networkManager.makeImageRequest(from: link) { image in
-            self.changeImageInModel(link: link, image: image)
+            self.changeImageInModel(image: image, index: index)
             completion()
         }
     }
     
     //Once image is downloaded, updates entry within the model
-    private func changeImageInModel(link: String?, image: UIImage?) {
+    private func changeImageInModel(image: UIImage?, index: Int) {
         guard let model = model else { return }
-        model.forEach {
-            if $0.avatarURL == link {
-                $0.avatarImage = image
-            }
+
+        if model[index].avatarImage == nil {
+            model[index].avatarImage = image
         }
+        
     }
     
     //Creates the initial entry for the model.
@@ -70,12 +88,13 @@ class SearchRepoManager {
     }
     
     //Processes the raw chunk of data, creates model entries.
-    private func processRawData(from data: RawSearchModel?) {
+    private func processRawData(from data: RawSearchModel?) -> [SearchModel] {
+        var entries = [SearchModel]()
         data?.items?.forEach {
             let entry = self.createEntry(from: $0)
-            model?.append(entry)
-            self.model = model
+            entries.append(entry)
         }
+        return entries
     }
     
     private func getAvatarLink(for index: Int) -> String? {

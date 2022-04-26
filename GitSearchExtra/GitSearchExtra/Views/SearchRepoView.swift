@@ -7,17 +7,30 @@
 
 import UIKit
 
+protocol SearchRepoViewDelegate {
+    func cellAppeared(index: Int)
+    func cellTapped(index: Int)
+    func loadMoreCells()
+    func didEnterQuerry(text: String)
+}
+
 class SearchRepoView: UIView {
     
-    private var model = [SearchModel]()
+    var model = [SearchModel]()
     
-    let searchBar = TextFieldSearchView().setupView()
+    let searchBar = TextFieldSearchView()
     let tableView = UITableView()
+    var delegate: SearchRepoViewDelegate!
+    
+    private var keyboardSize = CGRect()
     
     func setupView() {
         self.addSubview(searchBar)
         self.addSubview(tableView)
         
+        searchBar.delegate = self
+        
+        searchBar.setupView()
         configureTableView()
         
         
@@ -37,6 +50,16 @@ class SearchRepoView: UIView {
             
         ])
     }
+        
+    func updateModel(model: [SearchModel]) {
+        self.model = model
+        self.tableView.reloadData()
+    }
+    
+    func updateCell(at index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
     
     private func configureTableView() {
         tableView.dataSource = self
@@ -45,7 +68,6 @@ class SearchRepoView: UIView {
         tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.identifier)
         tableView.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
-    
 }
 
 extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
@@ -63,9 +85,24 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.identifier) as! RepositoryTableViewCell
-        cell.setupCell(repoTitle: "Repo", image: nil, stars: "123")
+        cell.setupCell(repoTitle: model[indexPath.row].repoTitle,
+                       image: model[indexPath.row].avatarImage,
+                       stars: String(model[indexPath.row].repoStars ?? 0))
+        
+        //Cell has been drawn, but lacks image. Requests manager to provide it with the image
+        if model[indexPath.row].avatarImage == nil {
+            delegate.cellAppeared(index: indexPath.row)
+        }
+        
+        if model.count - 15 == indexPath.row {
+            delegate.loadMoreCells()
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate.cellTapped(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,4 +118,10 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
         cell.layer.mask = maskLayer
     }
     
+}
+
+extension SearchRepoView: TextFieldSearchViewDelegate {
+    func returnQuery(text: String) {
+        delegate.didEnterQuerry(text: text)
+    }
 }

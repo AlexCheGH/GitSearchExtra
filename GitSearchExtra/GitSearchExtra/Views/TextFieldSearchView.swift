@@ -7,25 +7,41 @@
 
 import UIKit
 
+protocol TextFieldSearchViewDelegate {
+    func returnQuery(text: String)
+}
+
 class TextFieldSearchView: UIView {
     
-    func setupView() -> UIView {
+    var delegate: TextFieldSearchViewDelegate?
+    var view = UIView()
+    
+    func setupView() {
         
         let sidePadding: CGFloat = 16
         let elementsPadding: CGFloat = 14
         let defaultPadding: CGFloat = 10
         
-        let view = UIView()
         let label = createLabel()
         let textField = createTextField()
         
         textField.delegate = self
         
+        view.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         
+        self.addSubview(view)
         view.addSubview(label)
         view.addSubview(textField)
+        
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            view.topAnchor.constraint(equalTo: self.topAnchor),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+        ])
         
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sidePadding),
@@ -37,8 +53,6 @@ class TextFieldSearchView: UIView {
             textField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -sidePadding),
             textField.heightAnchor.constraint(equalToConstant: 36)
         ])
-        
-        return view
     }
     
     private func createLabel() -> UILabel {
@@ -82,5 +96,17 @@ class TextFieldSearchView: UIView {
 }
 
 extension TextFieldSearchView: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return false }
+        
+        if !text.isEmpty {
+            delegate?.returnQuery(text: text)
+            textField.resignFirstResponder()
+            return true
+        }
+        return false
+    }
+    
     
 }
