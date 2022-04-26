@@ -156,6 +156,9 @@ class RepositoryTableViewCell: UITableViewCell {
     private func setupStarsImageView() {
         starsImageView.image = UIImage(systemName: "star")
         starsImageView.tintColor = Color.warmGray
+        avatarImageView.layer.masksToBounds = true
+        starsImageView.layer.cornerRadius = cornerRadius
+        
     }
     
     //MARK: RightArrow imageview
