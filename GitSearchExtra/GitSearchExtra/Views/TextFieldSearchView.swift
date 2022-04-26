@@ -57,7 +57,7 @@ class TextFieldSearchView: UIView {
     
     private func createLabel() -> UILabel {
         let label = UILabel()
-        let text = Localization.Label.repository
+        let text = Localization.Label.search
         label.text = text
         label.font = .systemFont(ofSize: 34, weight: .bold)
         
