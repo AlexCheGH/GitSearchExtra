@@ -13,6 +13,8 @@
 		A597CDEB281726BF0036EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A597CDED281726BF0036EF2E /* Localizable.strings */; };
 		A597CDF22817280E0036EF2E /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CDF12817280E0036EF2E /* Localization.swift */; };
 		A597CDF828172B9B0036EF2E /* TextFieldSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CDF728172B9B0036EF2E /* TextFieldSearchView.swift */; };
+		A597CDFC2817D4F80036EF2E /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CDFB2817D4F80036EF2E /* RepositoryTableViewCell.swift */; };
+		A597CDFF2817E2C80036EF2E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CDFE2817E2C80036EF2E /* Colors.swift */; };
 		A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD282816D18100403AF0 /* AppDelegate.swift */; };
 		A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */; };
 		A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2C2816D18100403AF0 /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 		A597CDF02817271A0036EF2E /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A597CDF12817280E0036EF2E /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		A597CDF728172B9B0036EF2E /* TextFieldSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSearchView.swift; sourceTree = "<group>"; };
+		A597CDFB2817D4F80036EF2E /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		A597CDFE2817E2C80036EF2E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A5ABBD252816D18100403AF0 /* GitSearchExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearchExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABBD282816D18100403AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,8 +79,17 @@
 			isa = PBXGroup;
 			children = (
 				A597CDF728172B9B0036EF2E /* TextFieldSearchView.swift */,
+				A597CDFB2817D4F80036EF2E /* RepositoryTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A597CDFD2817E2BF0036EF2E /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				A597CDFE2817E2C80036EF2E /* Colors.swift */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 		A5ABBD1C2816D18100403AF0 = {
@@ -100,6 +113,7 @@
 			children = (
 				A5ABBD282816D18100403AF0 /* AppDelegate.swift */,
 				A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */,
+				A597CDFD2817E2BF0036EF2E /* Design */,
 				A597CDE7281726760036EF2E /* Localization */,
 				A597CDE02816EDBD0036EF2E /* Navigation */,
 				A5ABBD2C2816D18100403AF0 /* ViewController.swift */,
@@ -185,6 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A597CDFC2817D4F80036EF2E /* RepositoryTableViewCell.swift in Sources */,
+				A597CDFF2817E2C80036EF2E /* Colors.swift in Sources */,
 				A597CDE22816EDD50036EF2E /* Storyboarded.swift in Sources */,
 				A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */,
 				A597CDF828172B9B0036EF2E /* TextFieldSearchView.swift in Sources */,
