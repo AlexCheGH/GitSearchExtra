@@ -98,6 +98,8 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
             delegate.loadMoreCells()
         }
         
+        cell.selectionStyle = .none
+        
         return cell
     }
     
