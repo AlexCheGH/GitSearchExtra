@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol StreatchyTableHeaderViewDelegate {
+    func viewOnline(link: String?)
+}
+
 class StreatchyTableHeaderView: UIView {
     
     var imageViewHeight = NSLayoutConstraint()
@@ -15,14 +19,21 @@ class StreatchyTableHeaderView: UIView {
     var containerView: UIView!
     var imageView: UIImageView!
     
-    private var stackView = UIStackView()
+    private var labelsContainer = UIView()
     private var repoByLabel = UILabel()
     private var authorNameLabel = UILabel()
-    private var starsStackView = UIStackView()
+    private var starsContainer = UIView()
     private var starImageView = UIImageView()
     private var starsNumberLabel = UILabel()
     
+    private var actionStackView = UIStackView()
+    private var repoTitleLabel = UILabel()
+    private var viewOnlineButton = UIButton()
+    
     var containerViewHeight = NSLayoutConstraint()
+    
+    var delegate: StreatchyTableHeaderViewDelegate?
+    var link: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,20 +56,27 @@ class StreatchyTableHeaderView: UIView {
         imageView.contentMode = .scaleAspectFill
         containerView.addSubview(imageView)
         
-        containerView.addSubview(stackView)
+        containerView.addSubview(labelsContainer)
         
-        stackView.axis = .vertical
-        stackView.addSubview(repoByLabel)
-        stackView.addSubview(authorNameLabel)
-        stackView.addSubview(starsStackView)
+
+        labelsContainer.addSubview(repoByLabel)
+        labelsContainer.addSubview(authorNameLabel)
+        labelsContainer.addSubview(starsContainer)
         
-        starsStackView.axis = .horizontal
-        starsStackView.addSubview(starImageView)
+   
+        starsContainer.addSubview(starImageView)
         starImageView.addSubview(starsNumberLabel)
         
+        containerView.addSubview(actionStackView)
+
+        actionStackView.axis = .horizontal
+        actionStackView.addArrangedSubview(repoTitleLabel)
+        actionStackView.addArrangedSubview(viewOnlineButton)
     }
     
-    func setupElements(authorName: String, starsNumber: String, avatarImage: UIImage?) {
+    func setupElements(authorName: String, starsNumber: String, avatarImage: UIImage?, repoTitle: String?, repoLink: String?) {
+        link = repoLink
+        
         repoByLabel.text = Localization.Label.repoBy
         repoByLabel.font = .systemFont(ofSize: 15, weight: .semibold)
         repoByLabel.textColor = Color.white
@@ -80,7 +98,20 @@ class StreatchyTableHeaderView: UIView {
         
         imageView.image = avatarImage
         
+        repoTitleLabel.text = repoTitle
+        repoTitleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
+        repoTitleLabel.numberOfLines = 0
         
+        viewOnlineButton.setTitle(Localization.Button.viewOnline, for: .normal)
+        viewOnlineButton.layer.cornerRadius = 17
+        viewOnlineButton.backgroundColor = Color.greybase
+        viewOnlineButton.setTitleColor(Color.blue, for: .normal)
+        viewOnlineButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        viewOnlineButton.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
+    }
+    
+    @objc private func onButtonTap() {
+        delegate?.viewOnline(link: link)
     }
     
     func setViewConstraints() {
@@ -106,34 +137,34 @@ class StreatchyTableHeaderView: UIView {
         imageViewHeight.isActive = true
         
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        labelsContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -105),
+            labelsContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            labelsContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -105),
         ])
         
         repoByLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            repoByLabel.topAnchor.constraint(equalTo: stackView.topAnchor),
-            repoByLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            repoByLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+            repoByLabel.topAnchor.constraint(equalTo: labelsContainer.topAnchor),
+            repoByLabel.leadingAnchor.constraint(equalTo: labelsContainer.leadingAnchor),
+            repoByLabel.trailingAnchor.constraint(equalTo: labelsContainer.trailingAnchor)
         ])
         
         authorNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             authorNameLabel.topAnchor.constraint(equalTo: repoByLabel.bottomAnchor, constant: 4),
-            authorNameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            authorNameLabel.leadingAnchor.constraint(equalTo: labelsContainer.leadingAnchor),
         ])
         
-        starsStackView.translatesAutoresizingMaskIntoConstraints = false
+        starsContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starsStackView.topAnchor.constraint(equalTo: authorNameLabel.bottomAnchor, constant: 6),
-            starsStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor)
+            starsContainer.topAnchor.constraint(equalTo: authorNameLabel.bottomAnchor, constant: 6),
+            starsContainer.leadingAnchor.constraint(equalTo: labelsContainer.leadingAnchor)
         ])
         
         starImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starImageView.topAnchor.constraint(equalTo: starsStackView.topAnchor, constant: 2),
+            starImageView.topAnchor.constraint(equalTo: starsContainer.topAnchor, constant: 2),
             starImageView.leadingAnchor.constraint(equalTo: starImageView.leadingAnchor),
             starImageView.widthAnchor.constraint(equalToConstant: 13),
             starImageView.heightAnchor.constraint(equalToConstant: 13)
@@ -141,9 +172,22 @@ class StreatchyTableHeaderView: UIView {
         
         starsNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            starsNumberLabel.topAnchor.constraint(equalTo: starsStackView.topAnchor),
+            starsNumberLabel.topAnchor.constraint(equalTo: starsContainer.topAnchor),
             starsNumberLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 5),
-            starsNumberLabel.bottomAnchor.constraint(equalTo: starsStackView.bottomAnchor)
+            starsNumberLabel.bottomAnchor.constraint(equalTo: starsContainer.bottomAnchor)
+        ])
+        
+        actionStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            actionStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            actionStackView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 10),
+            actionStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -48)
+        ])
+        
+        viewOnlineButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            viewOnlineButton.widthAnchor.constraint(equalToConstant: 120)
+
         ])
         
     }
