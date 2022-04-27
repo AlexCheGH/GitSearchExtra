@@ -61,7 +61,8 @@ extension ViewController: SearchRepoViewDelegate {
     }
     
     func cellTapped(index: Int) {
-        print("cell tapped: \(index)")
+        guard let entry = manager.publicModel?[index] else { return }
+        coordinator?.getCommitHistory(for: entry)
     }
     
     func loadMoreCells() {

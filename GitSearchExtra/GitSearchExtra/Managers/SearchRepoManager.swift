@@ -12,7 +12,9 @@ import UIKit
 
 class SearchRepoManager {
     
-    @Published private var model: [SearchModel]? = []
+    @Published private var model: [SearchModel]? = [] //source of truth
+    
+    var publicModel: [SearchModel]? { get { model } }
     
     private var matching: String?// needs for additional data downloads
     private var pageNumber = 1 // needs for additional data downloads

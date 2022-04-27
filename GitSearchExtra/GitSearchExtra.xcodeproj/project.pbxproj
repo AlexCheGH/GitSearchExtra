@@ -25,6 +25,7 @@
 		A597CE1628183F9F0036EF2E /* SearchRepoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */; };
 		A597CE18281847730036EF2E /* SearchRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE17281847730036EF2E /* SearchRepoView.swift */; };
 		A597CE1A281870AE0036EF2E /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE19281870AE0036EF2E /* CustomHeaderView.swift */; };
+		A597CE1C281923290036EF2E /* CommitsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */; };
 		A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD282816D18100403AF0 /* AppDelegate.swift */; };
 		A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */; };
 		A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2C2816D18100403AF0 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoManager.swift; sourceTree = "<group>"; };
 		A597CE17281847730036EF2E /* SearchRepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoView.swift; sourceTree = "<group>"; };
 		A597CE19281870AE0036EF2E /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistoryViewController.swift; sourceTree = "<group>"; };
 		A5ABBD252816D18100403AF0 /* GitSearchExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearchExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABBD282816D18100403AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				A597CDE7281726760036EF2E /* Localization */,
 				A597CDE02816EDBD0036EF2E /* Navigation */,
 				A5ABBD2C2816D18100403AF0 /* ViewController.swift */,
+				A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */,
 				A597CE042817F8520036EF2E /* Managers */,
 				A597CE032817F83A0036EF2E /* Model */,
 				A597CDF628172B3B0036EF2E /* Views */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A597CE1C281923290036EF2E /* CommitsHistoryViewController.swift in Sources */,
 				A597CE1A281870AE0036EF2E /* CustomHeaderView.swift in Sources */,
 				A597CDFC2817D4F80036EF2E /* RepositoryTableViewCell.swift in Sources */,
 				A597CDFF2817E2C80036EF2E /* Colors.swift in Sources */,
