@@ -58,8 +58,6 @@ extension CommitsHistoryViewController: CommitHistoryViewDelegate {
     }
     
     func share() {
-        print("sharing")
+        coordinator?.shareLink(link: searchModel?.repoLink)
     }
-    
-    
 }

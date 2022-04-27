@@ -36,4 +36,14 @@ class MainCoordinator: Coordinator {
         navigationController.present(alert, animated: true, completion: nil)
     }
     
+    func shareLink(link: String?) {
+        guard let link = link else { return }
+        let url = URL(string: link)!
+        
+        let activityViewController = UIActivityViewController(activityItems: [url],
+                                     applicationActivities: nil)
+
+        navigationController.present(activityViewController, animated: true)
+    }
+    
 }
