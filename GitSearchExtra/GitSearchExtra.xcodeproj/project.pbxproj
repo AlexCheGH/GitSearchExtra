@@ -177,6 +177,16 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		A597CE2D2819B0420036EF2E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABBD2C2816D18100403AF0 /* ViewController.swift */,
+				A597CE2B2819ABCF0036EF2E /* AlertViewController.swift */,
+				A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A5ABBD1C2816D18100403AF0 = {
 			isa = PBXGroup;
 			children = (
@@ -201,9 +211,7 @@
 				A597CDFD2817E2BF0036EF2E /* Design */,
 				A597CDE7281726760036EF2E /* Localization */,
 				A597CDE02816EDBD0036EF2E /* Navigation */,
-				A5ABBD2C2816D18100403AF0 /* ViewController.swift */,
-				A597CE2B2819ABCF0036EF2E /* AlertViewController.swift */,
-				A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */,
+				A597CE2D2819B0420036EF2E /* ViewControllers */,
 				A597CE042817F8520036EF2E /* Managers */,
 				A597CE032817F83A0036EF2E /* Model */,
 				A597CDF628172B3B0036EF2E /* Views */,
