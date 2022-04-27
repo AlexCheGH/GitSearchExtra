@@ -11,6 +11,7 @@
 "repository_label" = "Repository";
 "repo_title_lable" = "Repo title";
 "commits_history_label" = "Commits history";
+"repo_by" = "REPO BY";
 
 //Buttons
 "share_repo_button" = "Share repo";
@@ -24,3 +25,6 @@
 
 //Alert prompt
 "external_link_prompt" = "Are you sure you want to open the link?";
+
+//Texts
+"number_of_stars" = "Number of stars (%@)";

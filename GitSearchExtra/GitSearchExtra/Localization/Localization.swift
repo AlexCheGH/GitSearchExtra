@@ -14,6 +14,7 @@ struct Localization {
         static let repository = NSLocalizedString("repository_label", comment: "")
         static let repoTitle = NSLocalizedString("repo_title_lable", comment: "")
         static let commitsHistory = NSLocalizedString("commits_history_label", comment: "")
+        static let repoBy = NSLocalizedString("repo_by", comment: "")
     }
     
     struct Button {
@@ -30,6 +31,10 @@ struct Localization {
     
     struct AlertPrompt {
         static let externalLink = NSLocalizedString("external_link_prompt", comment: "")
+    }
+    
+    struct Texts {
+        static let nummberOfStars = NSLocalizedString("number_of_stars", comment: "")
     }
     
 }
