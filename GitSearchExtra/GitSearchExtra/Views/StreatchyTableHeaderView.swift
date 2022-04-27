@@ -66,7 +66,7 @@ class StreatchyTableHeaderView: UIView {
         
 
         actionStackView.addSubview(repoTitleLabel)
-        actionStackView.addSubview(viewOnlineButton)
+        self.addSubview(viewOnlineButton) // otherwise is untapable
         actionStackView.backgroundColor = .white
     }
     
@@ -126,7 +126,7 @@ class StreatchyTableHeaderView: UIView {
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         
         ])
@@ -175,7 +175,7 @@ class StreatchyTableHeaderView: UIView {
         actionStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             actionStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            actionStackView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 25),
+            actionStackView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
             actionStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             actionStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])

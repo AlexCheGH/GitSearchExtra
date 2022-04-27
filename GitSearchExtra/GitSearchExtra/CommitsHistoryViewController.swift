@@ -20,6 +20,7 @@ class CommitsHistoryViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(commitHistoryView)
+        commitHistoryView.delegate = self
         
         manager = CommitsHistoryManager(searchModel: searchModel)
         setupSubscriber()
@@ -49,5 +50,16 @@ class CommitsHistoryViewController: UIViewController, Storyboarded {
                 self.commitHistoryView.tableView.reloadData()
             })
     }
+}
+
+extension CommitsHistoryViewController: CommitHistoryViewDelegate {
+    func openRepoExternaly(link: String?) {
+        print(link)
+    }
+    
+    func share() {
+        print("sharing")
+    }
+    
     
 }

@@ -8,7 +8,8 @@
 import UIKit
 
 protocol CommitHistoryViewDelegate {
-    
+    func openRepoExternaly(link: String?)
+    func share()
 }
 
 class CommitHistoryView: UIView {
@@ -18,6 +19,8 @@ class CommitHistoryView: UIView {
     let headerView = StreatchyTableHeaderView()
     let tableView = UITableView()
     let sharingButton = UIButton()
+    
+    var delegate: CommitHistoryViewDelegate?
     
     
     func setupView(commitsModel: [CommitsHistory], repoSearchModel: SearchModel) {
@@ -32,6 +35,8 @@ class CommitHistoryView: UIView {
         self.addSubview(headerView)
         self.addSubview(tableView)
         self.addSubview(sharingButton)
+        
+        headerView.delegate = self
         
         setupTableView()
         setupSharingButton()
@@ -54,8 +59,13 @@ class CommitHistoryView: UIView {
         sharingButton.backgroundColor = Color.greybase
         sharingButton.setTitleColor(Color.blue, for: .normal)
         sharingButton.layer.cornerRadius = 10
+        
+        sharingButton.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
     }
     
+    @objc private func onButtonTap() {
+        delegate?.share()
+    }
     
     private func applyConstraints() {
         
@@ -101,7 +111,10 @@ extension CommitHistoryView: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
+extension CommitHistoryView: StreatchyTableHeaderViewDelegate {
+    func viewOnline(link: String?) {
+        delegate?.openRepoExternaly(link: link)
+    }
+}
