@@ -26,6 +26,8 @@
 		A597CE18281847730036EF2E /* SearchRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE17281847730036EF2E /* SearchRepoView.swift */; };
 		A597CE1A281870AE0036EF2E /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE19281870AE0036EF2E /* CustomHeaderView.swift */; };
 		A597CE1C281923290036EF2E /* CommitsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */; };
+		A597CE1E281925320036EF2E /* RawCommitsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1D281925320036EF2E /* RawCommitsHistory.swift */; };
+		A597CE20281925D30036EF2E /* CommitsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1F281925D30036EF2E /* CommitsHistory.swift */; };
 		A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD282816D18100403AF0 /* AppDelegate.swift */; };
 		A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */; };
 		A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2C2816D18100403AF0 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 		A597CE17281847730036EF2E /* SearchRepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoView.swift; sourceTree = "<group>"; };
 		A597CE19281870AE0036EF2E /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistoryViewController.swift; sourceTree = "<group>"; };
+		A597CE1D281925320036EF2E /* RawCommitsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawCommitsHistory.swift; sourceTree = "<group>"; };
+		A597CE1F281925D30036EF2E /* CommitsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistory.swift; sourceTree = "<group>"; };
 		A5ABBD252816D18100403AF0 /* GitSearchExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearchExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABBD282816D18100403AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				A597CE052817F8940036EF2E /* RawSearchModel.swift */,
+				A597CE1D281925320036EF2E /* RawCommitsHistory.swift */,
+				A597CE1F281925D30036EF2E /* CommitsHistory.swift */,
 				A597CE07281819A90036EF2E /* SearchModel.swift */,
 			);
 			path = Model;
@@ -272,11 +278,13 @@
 				A597CDE22816EDD50036EF2E /* Storyboarded.swift in Sources */,
 				A597CE0F28181B8F0036EF2E /* SearchEndpoint.swift in Sources */,
 				A597CE0B28181B650036EF2E /* NetworkManager.swift in Sources */,
+				A597CE1E281925320036EF2E /* RawCommitsHistory.swift in Sources */,
 				A597CE08281819A90036EF2E /* SearchModel.swift in Sources */,
 				A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */,
 				A597CDF828172B9B0036EF2E /* TextFieldSearchView.swift in Sources */,
 				A597CDF22817280E0036EF2E /* Localization.swift in Sources */,
 				A597CE1228181D5C0036EF2E /* Endpointable.swift in Sources */,
+				A597CE20281925D30036EF2E /* CommitsHistory.swift in Sources */,
 				A597CE062817F8940036EF2E /* RawSearchModel.swift in Sources */,
 				A597CDE62816EE570036EF2E /* Coordinator.swift in Sources */,
 				A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */,
