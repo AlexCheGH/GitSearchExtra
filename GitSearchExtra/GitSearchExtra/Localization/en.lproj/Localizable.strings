@@ -12,6 +12,7 @@
 "repo_title_lable" = "Repo title";
 "commits_history_label" = "Commits history";
 "repo_by" = "REPO BY";
+"n_a" = "N/A";
 
 //Buttons
 "share_repo_button" = "Share repo";
@@ -28,3 +29,4 @@
 
 //Texts
 "number_of_stars" = "Number of stars (%@)";
+"something_went_wrong" = "Oops! Something went terribly wrong! Try again later.";

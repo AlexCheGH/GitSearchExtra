@@ -15,14 +15,16 @@ class SearchModel {
     var repoStars: Int?
     var authorID: Int?
     var authorName: String?
+    var repoLink: String?
     
-    init(avatarURL: String?, avatarImage: UIImage?, repoTitle: String?, repoStars: Int?, authorID: Int?, authorName: String?) {
+    init(avatarURL: String?, avatarImage: UIImage?, repoTitle: String?, repoStars: Int?, authorID: Int?, authorName: String?, repoLink: String?) {
         self.avatarURL = avatarURL
         self.avatarImage = avatarImage
         self.repoTitle = repoTitle
         self.repoStars = repoStars
         self.authorID = authorID
         self.authorName = authorName
+        self.repoLink = repoLink
     }
     
 }

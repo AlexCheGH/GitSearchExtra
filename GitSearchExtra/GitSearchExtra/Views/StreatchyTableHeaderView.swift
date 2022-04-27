@@ -13,9 +13,6 @@ protocol StreatchyTableHeaderViewDelegate {
 
 class StreatchyTableHeaderView: UIView {
     
-    var imageViewHeight = NSLayoutConstraint()
-    var imageViewBottom = NSLayoutConstraint()
-    
     var containerView: UIView!
     var imageView: UIImageView!
     
@@ -26,12 +23,10 @@ class StreatchyTableHeaderView: UIView {
     private var starImageView = UIImageView()
     private var starsNumberLabel = UILabel()
     
-    private var actionStackView = UIStackView()
+    private var actionStackView = UIView()
     private var repoTitleLabel = UILabel()
     private var viewOnlineButton = UIButton()
-    
-    var containerViewHeight = NSLayoutConstraint()
-    
+        
     var delegate: StreatchyTableHeaderViewDelegate?
     var link: String?
     
@@ -68,10 +63,11 @@ class StreatchyTableHeaderView: UIView {
         starImageView.addSubview(starsNumberLabel)
         
         containerView.addSubview(actionStackView)
+        
 
-        actionStackView.axis = .horizontal
-        actionStackView.addArrangedSubview(repoTitleLabel)
-        actionStackView.addArrangedSubview(viewOnlineButton)
+        actionStackView.addSubview(repoTitleLabel)
+        actionStackView.addSubview(viewOnlineButton)
+        actionStackView.backgroundColor = .white
     }
     
     func setupElements(authorName: String, starsNumber: String, avatarImage: UIImage?, repoTitle: String?, repoLink: String?) {
@@ -115,32 +111,31 @@ class StreatchyTableHeaderView: UIView {
     }
     
     func setViewConstraints() {
-        // UIView Constraints
-        NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalTo: containerView.widthAnchor),
-            self.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            self.heightAnchor.constraint(equalTo: containerView.heightAnchor)
-        ])
-        
         // Container View Constraints
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-        containerViewHeight = containerView.heightAnchor.constraint(equalTo: self.heightAnchor)
-        containerViewHeight.isActive = true
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            containerView.topAnchor.constraint(equalTo: self.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
+            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
         
         // ImageView Constraints
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageViewBottom = imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-        imageViewBottom.isActive = true
-        imageViewHeight = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
-        imageViewHeight.isActive = true
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        
+        ])
         
         
         labelsContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             labelsContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            labelsContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -105),
+            labelsContainer.topAnchor.constraint(equalTo: actionStackView.topAnchor, constant: -105),
         ])
         
         repoByLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -179,25 +174,29 @@ class StreatchyTableHeaderView: UIView {
         
         actionStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            actionStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            actionStackView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 10),
-            actionStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -48)
+            actionStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            actionStackView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 25),
+            actionStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            actionStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+        ])
+
+        
+        repoTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            repoTitleLabel.centerYAnchor.constraint(equalTo: actionStackView.centerYAnchor),
+            repoTitleLabel.leadingAnchor.constraint(equalTo: actionStackView.leadingAnchor, constant: 20)
         ])
         
         viewOnlineButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            viewOnlineButton.centerYAnchor.constraint(equalTo: actionStackView.centerYAnchor),
+            viewOnlineButton.trailingAnchor.constraint(equalTo: actionStackView.trailingAnchor, constant: -20),
             viewOnlineButton.widthAnchor.constraint(equalToConstant: 120)
-
         ])
+        
+        
         
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        containerViewHeight.constant = scrollView.contentInset.top
-        let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
-        containerView.clipsToBounds = offsetY <= 0
-        imageViewBottom.constant = offsetY >= 0 ? 0 : -offsetY / 2
-        imageViewHeight.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
-    }
     
 }
