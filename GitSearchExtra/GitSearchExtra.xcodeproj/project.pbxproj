@@ -28,6 +28,8 @@
 		A597CE1C281923290036EF2E /* CommitsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */; };
 		A597CE1E281925320036EF2E /* RawCommitsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1D281925320036EF2E /* RawCommitsHistory.swift */; };
 		A597CE20281925D30036EF2E /* CommitsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE1F281925D30036EF2E /* CommitsHistory.swift */; };
+		A597CE22281927300036EF2E /* CommitsHistoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE21281927300036EF2E /* CommitsHistoryEndpoint.swift */; };
+		A597CE2428192A440036EF2E /* CommitsHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597CE2328192A440036EF2E /* CommitsHistoryManager.swift */; };
 		A5ABBD292816D18100403AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD282816D18100403AF0 /* AppDelegate.swift */; };
 		A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */; };
 		A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBD2C2816D18100403AF0 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		A597CE1B281923290036EF2E /* CommitsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistoryViewController.swift; sourceTree = "<group>"; };
 		A597CE1D281925320036EF2E /* RawCommitsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawCommitsHistory.swift; sourceTree = "<group>"; };
 		A597CE1F281925D30036EF2E /* CommitsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistory.swift; sourceTree = "<group>"; };
+		A597CE21281927300036EF2E /* CommitsHistoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistoryEndpoint.swift; sourceTree = "<group>"; };
+		A597CE2328192A440036EF2E /* CommitsHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsHistoryManager.swift; sourceTree = "<group>"; };
 		A5ABBD252816D18100403AF0 /* GitSearchExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearchExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ABBD282816D18100403AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ABBD2A2816D18100403AF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				A597CE0928181B370036EF2E /* Network */,
 				A597CE1528183F9F0036EF2E /* SearchRepoManager.swift */,
+				A597CE2328192A440036EF2E /* CommitsHistoryManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A597CE0E28181B8F0036EF2E /* SearchEndpoint.swift */,
+				A597CE21281927300036EF2E /* CommitsHistoryEndpoint.swift */,
 				A597CE1328181D980036EF2E /* AvatarEndpoint.swift */,
 				A597CE1128181D5C0036EF2E /* Endpointable.swift */,
 			);
@@ -281,6 +287,7 @@
 				A597CE1E281925320036EF2E /* RawCommitsHistory.swift in Sources */,
 				A597CE08281819A90036EF2E /* SearchModel.swift in Sources */,
 				A5ABBD2D2816D18100403AF0 /* ViewController.swift in Sources */,
+				A597CE2428192A440036EF2E /* CommitsHistoryManager.swift in Sources */,
 				A597CDF828172B9B0036EF2E /* TextFieldSearchView.swift in Sources */,
 				A597CDF22817280E0036EF2E /* Localization.swift in Sources */,
 				A597CE1228181D5C0036EF2E /* Endpointable.swift in Sources */,
@@ -292,6 +299,7 @@
 				A597CE18281847730036EF2E /* SearchRepoView.swift in Sources */,
 				A597CE1628183F9F0036EF2E /* SearchRepoManager.swift in Sources */,
 				A597CDE42816EDEB0036EF2E /* MainCoordinator.swift in Sources */,
+				A597CE22281927300036EF2E /* CommitsHistoryEndpoint.swift in Sources */,
 				A5ABBD2B2816D18100403AF0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

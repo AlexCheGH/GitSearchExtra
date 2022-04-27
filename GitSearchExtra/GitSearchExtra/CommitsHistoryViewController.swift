@@ -10,10 +10,10 @@ import UIKit
 class CommitsHistoryViewController: UIViewController, Storyboarded {
 
     weak var coordinator: MainCoordinator?
+    var searchModel: SearchModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

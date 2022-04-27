@@ -25,6 +25,7 @@ class MainCoordinator: Coordinator {
     func getCommitHistory(for entry: SearchModel) {
         let vc = CommitsHistoryViewController.instantiate()
         vc.coordinator = self
+        vc.searchModel = entry
         navigationController.pushViewController(vc, animated: true)
     }
     
