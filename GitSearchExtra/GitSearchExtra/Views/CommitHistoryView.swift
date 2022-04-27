@@ -51,6 +51,7 @@ class CommitHistoryView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CommitsTableViewCell.self, forCellReuseIdentifier: CommitsTableViewCell.identifier)
+        tableView.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: CustomHeaderView.identifier)
     }
     
     private func setupSharingButton() {
@@ -115,6 +116,14 @@ extension CommitHistoryView: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeaderView.identifier) as! CustomHeaderView
+        let text = Localization.Label.commitsHistory
+        view.title.text = text
+        return view
+    }
+    
 }
 
 extension CommitHistoryView: StreatchyTableHeaderViewDelegate {
