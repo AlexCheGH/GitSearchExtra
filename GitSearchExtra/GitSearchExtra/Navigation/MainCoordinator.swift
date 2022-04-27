@@ -29,4 +29,11 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func openExternalLink(link: String?) {
+        guard let link = link else { return }
+
+        let alert = AlertViewController.externalLinkAlert(url: URL(string: link)!)
+        navigationController.present(alert, animated: true, completion: nil)
+    }
+    
 }

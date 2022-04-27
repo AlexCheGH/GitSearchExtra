@@ -54,7 +54,7 @@ class CommitsHistoryViewController: UIViewController, Storyboarded {
 
 extension CommitsHistoryViewController: CommitHistoryViewDelegate {
     func openRepoExternaly(link: String?) {
-        print(link)
+        coordinator?.openExternalLink(link: link)
     }
     
     func share() {

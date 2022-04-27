@@ -16,6 +16,7 @@ struct Localization {
         static let commitsHistory = NSLocalizedString("commits_history_label", comment: "")
         static let repoBy = NSLocalizedString("repo_by", comment: "")
         static let notAvailable = NSLocalizedString("n_a", comment: "")
+        static let alert = NSLocalizedString("alert", comment: "")
     }
     
     struct Button {

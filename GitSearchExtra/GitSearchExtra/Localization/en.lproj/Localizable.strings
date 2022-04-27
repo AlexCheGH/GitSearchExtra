@@ -13,6 +13,7 @@
 "commits_history_label" = "Commits history";
 "repo_by" = "REPO BY";
 "n_a" = "N/A";
+"alert" = "Alert";
 
 //Buttons
 "share_repo_button" = "Share repo";

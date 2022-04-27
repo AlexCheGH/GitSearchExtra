@@ -85,7 +85,7 @@ class SearchRepoManager {
         let repoStars = item?.stargazersCount
         let authorID = item?.owner?.id
         let authorName = item?.owner?.login
-        let link = item?.url
+        let link = item?.htmlURL
         
         return SearchModel(avatarURL: avatarURL, avatarImage: avatarImage, repoTitle: repoTitle, repoStars: repoStars, authorID: authorID, authorName: authorName, repoLink: link)
     }
