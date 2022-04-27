@@ -9,11 +9,11 @@ import UIKit
 import Combine
 
 class CommitsHistoryViewController: UIViewController, Storyboarded {
-
+    
     weak var coordinator: MainCoordinator?
     var searchModel: SearchModel?
     
-    let commitHistoryView = CommitHistoryView()
+    private let commitHistoryView = CommitHistoryView()
     private var manager: CommitsHistoryManager?
     private var subscriber: AnyCancellable?
     
@@ -47,7 +47,7 @@ class CommitsHistoryViewController: UIViewController, Storyboarded {
                 guard let commitsHistory = commitsHistory, let searchModel = self.searchModel else { return }
                 
                 self.commitHistoryView.setupView(commitsModel: commitsHistory, repoSearchModel: searchModel)
-                self.commitHistoryView.tableView.reloadData()
+                self.commitHistoryView.reload()
             })
     }
 }

@@ -13,8 +13,8 @@ protocol StreatchyTableHeaderViewDelegate {
 
 class StreatchyTableHeaderView: UIView {
     
-    var containerView: UIView!
-    var imageView: UIImageView!
+    private var containerView: UIView!
+    private var imageView: UIImageView!
     
     private var labelsContainer = UIView()
     private var repoByLabel = UILabel()
@@ -26,7 +26,7 @@ class StreatchyTableHeaderView: UIView {
     private var actionStackView = UIView()
     private var repoTitleLabel = UILabel()
     private var viewOnlineButton = UIButton()
-        
+    
     var delegate: StreatchyTableHeaderViewDelegate?
     var link: String?
     
@@ -40,7 +40,7 @@ class StreatchyTableHeaderView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func createViews() {
+   private func createViews() {
         // Container View
         containerView = UIView()
         self.addSubview(containerView)
@@ -53,18 +53,18 @@ class StreatchyTableHeaderView: UIView {
         
         containerView.addSubview(labelsContainer)
         
-
+        
         labelsContainer.addSubview(repoByLabel)
         labelsContainer.addSubview(authorNameLabel)
         labelsContainer.addSubview(starsContainer)
         
-   
+        
         starsContainer.addSubview(starImageView)
         starImageView.addSubview(starsNumberLabel)
         
         containerView.addSubview(actionStackView)
         
-
+        
         actionStackView.addSubview(repoTitleLabel)
         self.addSubview(viewOnlineButton) // otherwise is untapable
         actionStackView.backgroundColor = .white
@@ -110,7 +110,7 @@ class StreatchyTableHeaderView: UIView {
         delegate?.viewOnline(link: link)
     }
     
-    func setViewConstraints() {
+   private func setViewConstraints() {
         // Container View Constraints
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -128,7 +128,7 @@ class StreatchyTableHeaderView: UIView {
             imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
-        
+            
         ])
         
         
@@ -179,7 +179,7 @@ class StreatchyTableHeaderView: UIView {
             actionStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             actionStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])
-
+        
         
         repoTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

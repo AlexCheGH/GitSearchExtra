@@ -11,6 +11,8 @@ class CustomHeaderView: UITableViewHeaderFooterView {
     
     let title = UILabel()
     
+    static let identifier = "CustomHeaderView"
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         configureContents()
@@ -20,7 +22,7 @@ class CustomHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureContents() {
+   private func configureContents() {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.font = .systemFont(ofSize: 22, weight: .bold)
         

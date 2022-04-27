@@ -14,7 +14,7 @@ protocol TextFieldSearchViewDelegate {
 class TextFieldSearchView: UIView {
     
     var delegate: TextFieldSearchViewDelegate?
-    var view = UIView()
+    private var view = UIView()
     
     func setupView() {
         

@@ -16,9 +16,9 @@ class CommitHistoryView: UIView {
     
     var model: [CommitsHistory] = []
     
-    let headerView = StreatchyTableHeaderView()
-    let tableView = UITableView()
-    let sharingButton = UIButton()
+    private let headerView = StreatchyTableHeaderView()
+    private let tableView = UITableView()
+    private let sharingButton = UIButton()
     
     var delegate: CommitHistoryViewDelegate?
     
@@ -41,6 +41,10 @@ class CommitHistoryView: UIView {
         setupTableView()
         setupSharingButton()
         applyConstraints()
+    }
+    
+    func reload() {
+        tableView.reloadData()
     }
     
     private func setupTableView() {

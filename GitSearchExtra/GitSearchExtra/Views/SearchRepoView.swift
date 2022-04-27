@@ -18,12 +18,10 @@ class SearchRepoView: UIView {
     
     var model = [SearchModel]()
     
-    let searchBar = TextFieldSearchView()
-    let tableView = UITableView()
+    private let searchBar = TextFieldSearchView()
+    private let tableView = UITableView()
     var delegate: SearchRepoViewDelegate!
-    
-    private var keyboardSize = CGRect()
-    
+        
     func setupView() {
         self.addSubview(searchBar)
         self.addSubview(tableView)
@@ -50,7 +48,7 @@ class SearchRepoView: UIView {
             
         ])
     }
-        
+    
     func updateModel(model: [SearchModel]) {
         self.model = model
         self.tableView.reloadData()

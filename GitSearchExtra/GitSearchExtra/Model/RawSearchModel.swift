@@ -92,7 +92,7 @@ class Item: Codable {
     let hasWiki: Bool?
     let hasPages: Bool?
     let forksCount: Int?
-    let mirrorURL: JSONNull?
+    let mirrorURL: String?
     let archived: Bool?
     let disabled: Bool?
     let openIssuesCount: Int?
@@ -188,7 +188,7 @@ class Item: Codable {
         case score = "score"
     }
 
-    init(id: Int?, nodeID: String?, name: String?, fullName: String?, itemPrivate: Bool?, owner: Owner?, htmlURL: String?, itemDescription: String?, fork: Bool?, url: String?, forksURL: String?, keysURL: String?, collaboratorsURL: String?, teamsURL: String?, hooksURL: String?, issueEventsURL: String?, eventsURL: String?, assigneesURL: String?, branchesURL: String?, tagsURL: String?, blobsURL: String?, gitTagsURL: String?, gitRefsURL: String?, treesURL: String?, statusesURL: String?, languagesURL: String?, stargazersURL: String?, contributorsURL: String?, subscribersURL: String?, subscriptionURL: String?, commitsURL: String?, gitCommitsURL: String?, commentsURL: String?, issueCommentURL: String?, contentsURL: String?, compareURL: String?, mergesURL: String?, archiveURL: String?, downloadsURL: String?, issuesURL: String?, pullsURL: String?, milestonesURL: String?, notificationsURL: String?, labelsURL: String?, releasesURL: String?, deploymentsURL: String?, createdAt: String?, updatedAt: String?, pushedAt: String?, gitURL: String?, sshURL: String?, cloneURL: String?, svnURL: String?, homepage: String?, size: Int?, stargazersCount: Int?, watchersCount: Int?, language: String?, hasIssues: Bool?, hasProjects: Bool?, hasDownloads: Bool?, hasWiki: Bool?, hasPages: Bool?, forksCount: Int?, mirrorURL: JSONNull?, archived: Bool?, disabled: Bool?, openIssuesCount: Int?, license: License?, allowForking: Bool?, isTemplate: Bool?, topics: [String]?, visibility: String?, forks: Int?, openIssues: Int?, watchers: Int?, defaultBranch: String?, score: Int?) {
+    init(id: Int?, nodeID: String?, name: String?, fullName: String?, itemPrivate: Bool?, owner: Owner?, htmlURL: String?, itemDescription: String?, fork: Bool?, url: String?, forksURL: String?, keysURL: String?, collaboratorsURL: String?, teamsURL: String?, hooksURL: String?, issueEventsURL: String?, eventsURL: String?, assigneesURL: String?, branchesURL: String?, tagsURL: String?, blobsURL: String?, gitTagsURL: String?, gitRefsURL: String?, treesURL: String?, statusesURL: String?, languagesURL: String?, stargazersURL: String?, contributorsURL: String?, subscribersURL: String?, subscriptionURL: String?, commitsURL: String?, gitCommitsURL: String?, commentsURL: String?, issueCommentURL: String?, contentsURL: String?, compareURL: String?, mergesURL: String?, archiveURL: String?, downloadsURL: String?, issuesURL: String?, pullsURL: String?, milestonesURL: String?, notificationsURL: String?, labelsURL: String?, releasesURL: String?, deploymentsURL: String?, createdAt: String?, updatedAt: String?, pushedAt: String?, gitURL: String?, sshURL: String?, cloneURL: String?, svnURL: String?, homepage: String?, size: Int?, stargazersCount: Int?, watchersCount: Int?, language: String?, hasIssues: Bool?, hasProjects: Bool?, hasDownloads: Bool?, hasWiki: Bool?, hasPages: Bool?, forksCount: Int?, mirrorURL: String?, archived: Bool?, disabled: Bool?, openIssuesCount: Int?, license: License?, allowForking: Bool?, isTemplate: Bool?, topics: [String]?, visibility: String?, forks: Int?, openIssues: Int?, watchers: Int?, defaultBranch: String?, score: Int?) {
         self.id = id
         self.nodeID = nodeID
         self.name = name
@@ -356,32 +356,5 @@ class Owner: Codable {
         self.receivedEventsURL = receivedEventsURL
         self.type = type
         self.siteAdmin = siteAdmin
-    }
-}
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }
