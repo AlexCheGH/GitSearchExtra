@@ -14,7 +14,7 @@ struct SearchEndpoint: Endpointable {
 
 extension SearchEndpoint {
     static func search(matching query: String,
-                       sortedBy sorting: Sorting = .recency,
+                       sortedBy sorting: Sorting = .bestMatch,
                        order: Order = .descending,
                        perPage: Int = 30,
                        pageNumber: Int = 1) -> SearchEndpoint {
