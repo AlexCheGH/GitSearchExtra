@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CommitHistoryViewDelegate {
+protocol CommitHistoryViewDelegate: AnyObject {
     func openRepoExternaly(link: String?)
     func share()
 }
@@ -22,7 +22,7 @@ class CommitHistoryView: UIView {
     
     private let sharingButtonHeight: CGFloat = 50
     
-    var delegate: CommitHistoryViewDelegate?
+    weak var delegate: CommitHistoryViewDelegate?
     
     
     func setupView(commitsModel: [CommitsHistory], repoSearchModel: SearchModel) {

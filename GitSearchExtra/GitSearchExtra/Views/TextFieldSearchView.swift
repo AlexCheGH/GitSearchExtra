@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol TextFieldSearchViewDelegate {
+protocol TextFieldSearchViewDelegate: AnyObject {
     func returnQuery(text: String)
 }
 
 class TextFieldSearchView: UIView {
     
-    var delegate: TextFieldSearchViewDelegate?
+    weak var delegate: TextFieldSearchViewDelegate?
     private var view = UIView()
     
     func setupView() {

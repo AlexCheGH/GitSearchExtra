@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol StreatchyTableHeaderViewDelegate {
+protocol StreatchyTableHeaderViewDelegate: AnyObject {
     func viewOnline(link: String?)
 }
 
@@ -27,7 +27,7 @@ class StreatchyTableHeaderView: UIView {
     private var repoTitleLabel = UILabel()
     private var viewOnlineButton = UIButton()
     
-    var delegate: StreatchyTableHeaderViewDelegate?
+    weak var delegate: StreatchyTableHeaderViewDelegate?
     var link: String?
     
     override init(frame: CGRect) {

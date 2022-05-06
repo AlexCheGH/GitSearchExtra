@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SearchRepoViewDelegate {
+protocol SearchRepoViewDelegate: AnyObject {
     func cellAppeared(index: Int)
     func cellTapped(index: Int)
     func loadMoreCells()
@@ -20,7 +20,7 @@ class SearchRepoView: UIView {
     
     private let searchBar = TextFieldSearchView()
     private let tableView = UITableView()
-    var delegate: SearchRepoViewDelegate?
+    weak var delegate: SearchRepoViewDelegate?
         
     func setupView() {
         self.addSubview(searchBar)
