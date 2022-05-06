@@ -20,6 +20,8 @@ class CommitHistoryView: UIView {
     private let tableView = UITableView()
     private let sharingButton = UIButton()
     
+    private let sharingButtonHeight: CGFloat = 50
+    
     var delegate: CommitHistoryViewDelegate?
     
     
@@ -79,7 +81,7 @@ class CommitHistoryView: UIView {
             sharingButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             sharingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             sharingButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            sharingButton.heightAnchor.constraint(equalToConstant: 50)
+            sharingButton.heightAnchor.constraint(equalToConstant: sharingButtonHeight)
         ])
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,14 +89,14 @@ class CommitHistoryView: UIView {
             headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerView.topAnchor.constraint(equalTo: self.topAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            headerView.widthAnchor.constraint(equalToConstant: self.bounds.width)
+            headerView.heightAnchor.constraint(equalToConstant: self.bounds.height * 0.5)
         ])
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 15),
-            tableView.bottomAnchor.constraint(equalTo: sharingButton.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: sharingButton.bottomAnchor, constant: -sharingButtonHeight),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
