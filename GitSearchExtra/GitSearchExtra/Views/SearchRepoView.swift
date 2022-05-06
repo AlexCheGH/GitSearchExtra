@@ -20,7 +20,7 @@ class SearchRepoView: UIView {
     
     private let searchBar = TextFieldSearchView()
     private let tableView = UITableView()
-    var delegate: SearchRepoViewDelegate!
+    var delegate: SearchRepoViewDelegate?
         
     func setupView() {
         self.addSubview(searchBar)
@@ -89,11 +89,11 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
         
         //Cell has been drawn, but lacks image. Requests manager to provide it with the image
         if model[indexPath.row].avatarImage == nil {
-            delegate.cellAppeared(index: indexPath.row)
+            delegate?.cellAppeared(index: indexPath.row)
         }
         
         if model.count - 15 == indexPath.row {
-            delegate.loadMoreCells()
+            delegate?.loadMoreCells()
         }
         
         cell.selectionStyle = .none
@@ -102,7 +102,7 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.cellTapped(index: indexPath.row)
+        delegate?.cellTapped(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -122,6 +122,6 @@ extension SearchRepoView: UITableViewDataSource, UITableViewDelegate {
 
 extension SearchRepoView: TextFieldSearchViewDelegate {
     func returnQuery(text: String) {
-        delegate.didEnterQuerry(text: text)
+        delegate?.didEnterQuerry(text: text)
     }
 }
